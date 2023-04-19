@@ -24,6 +24,8 @@ upcoming scrapers:
 - mangakatana
 - minitokyo
 - msdn
+- newgrounds
 - pixiv <- current focus
+- tumblr
 - twitter
 - wiki (wikimedia??) like wiki.osdev etc

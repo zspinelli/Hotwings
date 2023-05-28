@@ -267,7 +267,7 @@ if __name__ == "__main__":
             while _subdirs:
                 _process()
 
-            print(f"** FINISHED SCRAPING: {name} **")
+            print(f"** FINISHED SCRAPING: {name} **\n")
 
             # ---- write resume file? ---- #
 

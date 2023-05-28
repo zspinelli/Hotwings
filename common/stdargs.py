@@ -165,3 +165,8 @@ def analyze(p_parsed: Namespace):
 
         elif p_parsed.dcai:
             _lower_limit = datetime.strptime(p_parsed.dcai, "%Y-%m-%d") - timedelta(days=1)
+
+    # ---- date resume. ---- #
+
+    if p_parsed.lrr:
+        _need_date_resume = True

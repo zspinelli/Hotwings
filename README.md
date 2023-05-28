@@ -1,7 +1,3 @@
-
-### common.py
-shared funtions between multiple scrapers.
-
 ### felthier.py
 for scraping the furaffinity tor archive posted by !RestrainedRaptor.
 
@@ -12,6 +8,9 @@ tor link: http://g6jy5jkx466lrqojcngbnksugrcfxsl562bzuikrka5rv7srgguqbjid.onion/
 update 5/27/2023:
 this scraper will now start tor by itself on windows provided tor browser is installed to its default directory on the desktop.
 the script will no longer function on linux or mac until their default tor locations are added to common/tor.py in the _BASE_PATH and _TOR_PATH dict constants.
+
+known issues:
+on frequent occasion the connection will error. currently the scraper has to be restarted from this in a new command line.
 
 ## Future
 planned scrapers:

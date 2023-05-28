@@ -94,7 +94,7 @@ def _process():
 
     subdir: str = _subdirs.pop(0)
     url: str = _ROOT.format(subdir)
-    print(f"** NOW ENTERING: {url} **\n")
+    print(f"** NOW ENTERING: {subdir} **\n")
 
     posts_soup: BeautifulSoup = BeautifulSoup(_session.get(url).text, "html.parser")
     posts: ResultSet = posts_soup.find_all("tr")[3:-1]
@@ -102,7 +102,6 @@ def _process():
     for item in posts:
         info: _CellInfo = _getCellInfo(item.find_all("td"))
         _link = url + info.href
-        # print("link:", _link)
 
         # file.
         if info.ext:
@@ -234,6 +233,8 @@ def _process():
             new_subdir: str = f"{subdir}{info.href}"
             _subdirs.append(new_subdir)
 
+    print(f"** NOW LEAVING: {subdir} **\n")
+
 
 if __name__ == "__main__":
     argv = argv[1:]
@@ -269,7 +270,7 @@ if __name__ == "__main__":
 
             print(f"** FINISHED SCRAPING: {name} **\n")
 
-            # ---- write resume file? ---- #
+            # ---- write resume file. ---- #
 
             if stdargs.needDateResume():
                 stdargs.writeDateResume(resume_file)

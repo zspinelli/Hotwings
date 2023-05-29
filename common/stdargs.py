@@ -122,7 +122,7 @@ def analyze(p_parsed: Namespace):
     # ---- output. ---- #
 
     if p_parsed.os and p_parsed.ou:
-        print("Output path conflict: -P_ and -ou cannot be used simultaneously.")
+        print("Output path conflict: -os and -ou cannot be used simultaneously.")
         exit()
 
     # ---- meta. ---- #

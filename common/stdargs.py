@@ -121,8 +121,12 @@ def analyze(p_parsed: Namespace):
 
     # ---- output. ---- #
 
+    if not p_parsed.os or p_parsed.ou:
+        print("output path missing: an -os or -ou argument must be given.")
+        exit()
+
     if p_parsed.os and p_parsed.ou:
-        print("Output path conflict: -os and -ou cannot be used simultaneously.")
+        print("output path conflict: -os and -ou cannot be given simultaneously.")
         exit()
 
     # ---- meta. ---- #
@@ -143,11 +147,11 @@ def analyze(p_parsed: Namespace):
         # ---- incompatible limits. ---- #
 
         if p_parsed.dcb and p_parsed.dcbi:
-            print("Date cutoff conflict: -date-cutoff-before and -date-cutoff-before-incl cannot be used simultaneously.")
+            print("date cutoff conflict: -date-cutoff-before and -date-cutoff-before-incl cannot be used simultaneously.")
             exit()
 
         if p_parsed.dca and p_parsed.dcai:
-            print("Date cutoff conflict: -date-cutoff-after and -date-cutoff-after-incl cannot be used simultaneously.")
+            print("date cutoff conflict: -date-cutoff-after and -date-cutoff-after-incl cannot be used simultaneously.")
             exit()
 
         # ---- lower limit. ---- #

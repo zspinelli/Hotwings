@@ -1,7 +1,7 @@
 ### general
 
-bloog 6/27/2023:
-even though it says below that pixiv is the current focus, i'm currently twisting the nipples off of gallery-dl's artstation extractor with pycharm's debugger since the site doesn't require oauth or any login credentials to get everything. low hanging fruit. i'll probably go after kemono/coomer party next for the same reason.
+bloog 6/29/2023:
+i'm currently twisting the nipples off of gallery-dl's artstation extractor with pycharm's debugger since the site doesn't require oauth or any login credentials to get everything. low hanging fruit. i'll probably go after kemono/coomer party next for the same reason.
 
 ### felthier.py
 for scraping the furaffinity tor archive posted by !RestrainedRaptor.
@@ -22,7 +22,7 @@ known issues:
 ## Future
 planned scrapers:
 - 600dpi
-- artstation
+- artstation <- current focus
 - deviantart
 - facebook
 - generic (fandom.com/wiki, MSDN, wiki, etc)
@@ -31,6 +31,6 @@ planned scrapers:
 - mangakatana
 - minitokyo
 - newgrounds
-- pixiv <- current focus
+- pixiv
 - tumblr
 - twitter

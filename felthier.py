@@ -102,12 +102,17 @@ def _parseArgs():
 def _process():
     global _out_filepath, _link
 
+    # ---- prepare next page. ---- #
+
     subdir: str = _subdirs.pop(0)
     url: str = _ROOT.format(subdir)
-    print(f"** NOW ENTERING: {subdir} **\n")
 
     posts_soup: BeautifulSoup = BeautifulSoup(_session.get(url).text, "html.parser")
     posts: ResultSet = posts_soup.find_all("tr")[3:-1]
+
+    # ---- process page items. ---- #
+
+    print(f"** NOW ENTERING: {subdir} **\n")
 
     for item in posts:
         info: _CellInfo = _getCellInfo(item.find_all("td"))
@@ -141,6 +146,7 @@ def _process():
                     out_filepath_no_ext: str = path.splitext(_out_filepath)[0].rstrip('.')
                     desc: str = BeautifulSoup(_session.get(_link).text, "html.parser").find("pre").text.strip()
 
+                    # save filebrary format meta.
                     if _parsed.fibr:
                         if path.isfile(out_filepath_no_ext + ".fibr"):
                             print(stdargs.MSG_NO_CLOBBER)
@@ -162,6 +168,7 @@ def _process():
 
                         record.writeFIBR(out_filepath_no_ext, title, tags, desc, extra)
 
+                    # save json format meta.
                     if _parsed.json:
                         if path.isfile(out_filepath_no_ext + ".json"):
                             print(stdargs.MSG_NO_CLOBBER)
@@ -176,6 +183,7 @@ def _process():
                         print(stdargs.MSG_TRY.format("html", info.title))
                         record.writeJSON(out_filepath_no_ext, meta)
 
+                    # save toml format meta.
                     if _parsed.toml:
                         if path.isfile(out_filepath_no_ext + ".toml"):
                             print(stdargs.MSG_NO_CLOBBER)
@@ -248,41 +256,54 @@ def _process():
 
 if __name__ == "__main__":
     register(_bailout)
+
+    # ---- parse input. ---- #
+
     argv = argv[1:]
 
     _parseArgs()
     stdargs.analyze(_parsed)
 
+    # ---- start special connection. ---- #
+
+    tor.start()
+    print() # note: space between tor init and scraper output.
+
+    # ---- set unstructured output path? ---- #
+
     if _parsed.ou:
         _dest_dir = _parsed.ou
 
-    if tor.start():
-        print() # note: space between tor init and scraper output.
+    # ---- mode processing loop. ----- #
 
-        for name in _parsed.names:
-            if _parsed.os:
-                _dest_dir = path.join(_parsed.os, "felthier", name)
+    for name in _parsed.names:
+        # ---- set structured output path? ---- #
 
-            # ---- read resume file? ---- #
+        if _parsed.os:
+            _dest_dir = path.join(_parsed.os, "felthier", name)
 
-            if stdargs.needDateResume():
-                _resume_file = path.join(_dest_dir, stdargs.pathDateResume(name))
-                _resume = stdargs.readDateResume(_resume_file)
+        # ---- read resume file? ---- #
 
-            # ---- scrape. ---- #
+        if stdargs.needDateResume():
+            _resume_file = path.join(_dest_dir, stdargs.pathDateResume(name))
+            _resume = stdargs.readDateResume(_resume_file)
 
-            print(f"** STARTED SCRAPING: {name} **\n")
+        # ---- scrape. ---- #
 
-            _subdirs.append(name + '/')
+        print(f"** STARTED SCRAPING: {name} **\n")
 
-            while _subdirs:
-                _process()
+        _subdirs.append(name + '/')
 
-            print(f"** FINISHED SCRAPING: {name} **\n")
+        while _subdirs:
+            _process()
 
-            # ---- write resume file. ---- #
+        print(f"** FINISHED SCRAPING: {name} **\n")
 
-            if stdargs.needDateResume():
-                stdargs.writeDateResume(_resume_file)
+        # ---- write resume file? ---- #
 
-        tor.stop()
+        if stdargs.needDateResume():
+            stdargs.writeDateResume(_resume_file)
+
+    # ---- stop special connection. ---- #
+
+    tor.stop()

@@ -303,7 +303,3 @@ if __name__ == "__main__":
 
         if stdargs.needDateResume():
             stdargs.writeDateResume(_resume_file)
-
-    # ---- stop special connection. ---- #
-
-    tor.stop()

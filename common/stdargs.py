@@ -121,7 +121,7 @@ def analyze(p_parsed: Namespace):
 
     # ---- output. ---- #
 
-    if not p_parsed.os or p_parsed.ou:
+    if not p_parsed.os or not p_parsed.ou:
         print("output path missing: an -os or -ou argument must be given.")
         exit()
 

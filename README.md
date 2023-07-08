@@ -1,7 +1,8 @@
 ### general
 
-bloog 6/29/2023:
-i'm currently twisting the nipples off of gallery-dl's artstation extractor with pycharm's debugger since the site doesn't require oauth or any login credentials to get everything. low hanging fruit. i'll probably go after kemono/coomer party next for the same reason.
+bloog jul/8/2023:
+i added a missing 'not' to stdargs. now it wont complain about not having an output dir.
+the artstation scraper is going well. its very uncomplicated now being decoupled from the rest of gallery-dl.
 
 ### felthier.py
 for scraping the furaffinity tor archive posted by !RestrainedRaptor.

@@ -10,7 +10,7 @@ for scraping the furaffinity tor archive posted by !RestrainedRaptor.
 - og post: https://www.furaffinity.net/journal/6873564/
 - tor site: http://g6jy5jkx466lrqojcngbnksugrcfxsl562bzuikrka5rv7srgguqbjid.onion/fa/
 
-update 6/29/2023:
+update jun/29/2023:
 - i fixed a thing that doesnt really matter related to download file naming.
 - the script will now stop the tor process no matter how it exits.
 

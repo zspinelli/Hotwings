@@ -1,8 +1,8 @@
 ### general
 
-bloog jul/8/2023:
-i added a missing 'not' to stdargs. now it wont complain about not having an output dir.
-the artstation scraper is going well. its very uncomplicated now being decoupled from the rest of gallery-dl.
+blog jul/10/2023:
+i made a bunch of changes to my development copy of the program. i'm going to do another "total replacement" type of update when i post the artstation scraper.
+it will accompany some deduplication code and a new utility script for the felthier site that should benefit any hardheaded datahoarders.
 
 ### felthier.py
 for scraping the furaffinity tor archive posted by !RestrainedRaptor.

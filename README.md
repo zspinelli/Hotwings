@@ -1,8 +1,7 @@
 ### general
 
-blog jul/10/2023:
-i made a bunch of changes to my development copy of the program. i'm going to do another "total replacement" type of update when i post the artstation scraper.
-it will accompany some deduplication code and a new utility script for the felthier site that should benefit any hardheaded datahoarders.
+blog: aug/8/2023:
+the artstation scraper is nearly finished and fully functional. video downloads are supported through yt-dlp. it will be a bit before i post the update. i made huge changes to everything that should make the arguments system far more robust and simpler to use in future scrapers. the name collector utility script for felthier has been postponed. im finishing an experiment with a different approach to the feltheir scraper itself to hopefully enable removing beautifulsoup from the parsing process to remove whatever overhead it creates and reduce the number of dependencies.
 
 ### felthier.py
 for scraping the furaffinity tor archive posted by !RestrainedRaptor.
@@ -26,10 +25,10 @@ planned scrapers:
 - artstation <- current focus
 - deviantart
 - facebook
+- flikr
 - generic (fandom.com/wiki, MSDN, wiki, etc)
 - furaffinity
 - kemono.party
-- mangakatana
 - minitokyo
 - newgrounds
 - pixiv

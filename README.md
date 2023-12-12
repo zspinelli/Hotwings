@@ -1,6 +1,9 @@
 ### general
 
-blog: aug/8/2023:
+blog: dec/12/2023:
+just poking in to leave a lifesign and say that things are going well for the most part. life is slowing me down now and i accidentally destroyed the artstation script and i'm in the process of finishing the rewrite/reconstruction. i've made numerous reorganizations to the entire project again to fit into my growing understanding of future requirements and futureproofing adaptations. the next update will be a good one.
+
+blog aug/8/2023:
 the artstation scraper is nearly finished and fully functional. video downloads are supported through yt-dlp. it will be a bit before i post the update. i made huge changes to everything that should make the arguments system far more robust and simpler to use in future scrapers. the name collector utility script for felthier has been postponed. im finishing an experiment with a different approach to the feltheir scraper itself to hopefully enable removing beautifulsoup from the parsing process to remove whatever overhead it creates and reduce the number of dependencies.
 
 ### felthier.py
